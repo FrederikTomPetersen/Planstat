@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<style>body{background-color:white;}</style>
+
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Dashboard for vedtagne lokalplaner</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" defer></script>
+  <script src="dashboard_data.js" defer></script>
+  <script src="dashboard.js" defer></script>
+</head>
+<html lang="da">
+  <body>
+    <div class="page">
+      <section class="hero">
+        <h1>Vedtagne lokalplaner i Plandata.dk</h1>
+        <p>Dashboardet viser nøgletal for vedtagne lokalplaner. Vælg en kommune for at sammenligne kommunens planmønster med fordelingen for hele landet.</p>
+      </section>
+      <section class="toolbar">
+        <div class="control-card">
+          <label for="kommuneSelect">Vælg kommune</label>
+          <select id="kommuneSelect"></select>
+        </div>
+        <div class="control-card meta">
+          <div id="metaText"></div>
+        </div>
+      </section>
+      <section class="kpi-grid">
+        <div class="kpi">
+          <div class="label">Antal vedtagne lokalplaner</div>
+          <div class="value" id="kpiAntal">-</div>
+          <div class="sub" id="kpiAntalSub"></div>
+        </div>
+        <div class="kpi">
+          <div class="label">Andel af landets planer</div>
+          <div class="value" id="kpiAndel">-</div>
+          <div class="sub" id="kpiAndelSub"></div>
+        </div>
+        <div class="kpi">
+          <div class="label">Typisk planareal</div>
+          <div class="value" id="kpiAreal">-</div>
+          <div class="sub" id="kpiArealSub"></div>
+        </div>
+        <div class="kpi">
+          <div class="label">Hyppigste anvendelse</div>
+          <div class="value" id="kpiAnvendelse">-</div>
+          <div class="sub" id="kpiAnvendelseSub"></div>
+        </div>
+      </section>
+      <section class="grid">
+        <div class="card">
+          <h2>Anvendelsesfordeling</h2>
+          <p class="hint">Sammenligning mellem valgt kommune og hele landet. Vises som andel af planer.</p>
+          <div id="plotAnvendelse" class="plot"></div>
+        </div>
+        <div class="card">
+          <h2>Planaktivitet over tid</h2>
+          <p class="hint">Antal vedtagne lokalplaner pr. år. Kommunen vises sammen med landstendensen.</p>
+          <div id="plotTid" class="plot"></div>
+        </div>
+        <div class="card card-wide">
+          <h2>Kommuner med flest vedtagne lokalplaner</h2>
+          <p class="hint">Overblik over de 15 kommuner med flest vedtagne lokalplaner i datasættet.</p>
+          <div id="plotTopkommuner" class="plot plot-wide"></div>
+        </div>
+      </section>
+      <div class="note">Bemærk: Dashboardet er statisk og opdateres først, når R-scriptet køres igen. Hvis det publiceres via GitHub Pages, kan HTML-filen automatisk opdateres med Windows Task Scheduler eller GitHub Actions.</div>
+    </div>
+  </body>
+</html>
+</html>
